@@ -1,0 +1,29 @@
+* {
+  /* margin: 0; */
+  /* padding: 0; */
+  box-sizing: border-box;
+  font-family: "Noto Sans Display";
+}
+/* @font-face {
+  font-family: 'Noto Sans Display';
+  src: url(./assets/Noto_Sans_Display/NotoSansDisplay-VariableFont_wdth\,wght.ttf);
+} */
+body{
+  background-image: url('./assets/images/Fon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 20px;
+  margin-top: 0px;
+  font-family: "Noto Sans Display";
+  font-weight: 400;
+
+}
+
+.noto-sans display-semibold{
+  font-family: "Noto Sans Display";
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 500;
+}
