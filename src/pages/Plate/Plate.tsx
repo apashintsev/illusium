@@ -31,5 +31,3 @@ export const Plate: FC<IProps> = () => {
       </>
     );
 };
-
-export default Plate;

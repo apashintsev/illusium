@@ -32,5 +32,3 @@ export const Anubis: FC<IProps> = () => {
       </>
     );
 };
-
-export default Anubis;

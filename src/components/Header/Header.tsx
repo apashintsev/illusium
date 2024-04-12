@@ -24,5 +24,3 @@ export const Header: FC<IProps> = () => {
     </>
   );
 };
-
-export default Header;

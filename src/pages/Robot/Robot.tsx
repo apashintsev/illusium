@@ -31,5 +31,3 @@ export const Robot: FC<IProps> = () => {
       </>
     );
 };
-
-export default Robot;

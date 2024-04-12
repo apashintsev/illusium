@@ -11,8 +11,10 @@ import { reconnect } from "wagmi/actions";
 import { injected } from "wagmi/connectors";
 import { config } from "./config.tsx";
 
-await reconnect(config, { connectors: [injected()] });
+reconnect(config, { connectors: [injected()] });
+
 const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <WagmiProvider config={config}>
     <QueryClientProvider client={queryClient}>

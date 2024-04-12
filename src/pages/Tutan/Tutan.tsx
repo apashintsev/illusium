@@ -31,5 +31,3 @@ export const Tutan: FC<IProps> = () => {
       </>
     );
 };
-
-export default Tutan;

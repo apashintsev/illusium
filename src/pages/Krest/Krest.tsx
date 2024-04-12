@@ -31,5 +31,3 @@ export const Krest: FC<IProps> = () => {
       </>
     );
 };
-
-export default Krest;

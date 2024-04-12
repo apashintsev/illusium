@@ -58,5 +58,3 @@ export const Main: FC<IProps> = () => {
         </>
     );
 };
-
-export default Main;

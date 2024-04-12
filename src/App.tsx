@@ -1,17 +1,16 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css'
-import { Header } from './components/Header/Header';
-import Main from './pages/Main/Main';
-import Plate from './pages/Plate/Plate';
-import Robot from './pages/Robot/Robot';
-import Krest from './pages/Krest/Krest';
-import Tutan from './pages/Tutan/Tutan';
-import Anubis from './pages/Anubis/Anubis';
+import "./App.css";
+import { Header } from "./components/Header/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Main } from "./pages/Main/Main";
+import { Plate } from "./pages/Plate/Plate";
+import { Robot } from "./pages/Robot/Robot";
+import { Krest } from "./pages/Krest/Krest";
+import { Tutan } from "./pages/Tutan/Tutan";
+import { Anubis } from "./pages/Anubis/Anubis";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 function App() {
-
   return (
     <>
       <Header />
@@ -40,4 +39,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
