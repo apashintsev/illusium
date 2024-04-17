@@ -22,7 +22,7 @@ export const Anubis: FC<IProps> = () => {
 
                     <button id="claimButton">Mint for 0.00024ETH</button>*/}
             <MintButton
-              contractAddress="0xE31F98B5C9b31F634ed7310560dfE508B0B569E4"
+              contractAddress="0xBdc828564Dd44b6a9F2e6Ddc2F4B33Fd2B230800"
               baseUriForTokens=""
               price="0.00024"
             />
