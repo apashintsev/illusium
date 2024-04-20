@@ -20,11 +20,7 @@ export const Krest: FC<IProps> = () => {
 
             <div className={styles.text_with_border}>PUBLIC</div>
 
-            <MintButton
-              contractAddress="0xBdc828564Dd44b6a9F2e6Ddc2F4B33Fd2B230800"
-              baseUriForTokens=""
-              price="0.00024"
-            />
+            <MintButton tokenId={0} baseUriForTokens="" price="0.0001" />
           </div>
         </main>
         <Footer />
