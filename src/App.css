@@ -27,3 +27,11 @@ body{
   font-variation-settings:
     "wdth" 500;
 }
+
+.countdown{
+  color:white;
+  font-size: 140px;
+  margin-left: 30%;
+  position: absolute;
+  top:40%
+}

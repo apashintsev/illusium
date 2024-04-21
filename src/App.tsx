@@ -9,11 +9,16 @@ import { Tutan } from "./pages/Tutan/Tutan";
 import { Anubis } from "./pages/Anubis/Anubis";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import Countdown from "react-countdown";
 
 function App() {
+  const endDate = "2024-05-15T00:00:00"
   return (
     <>
       <Header />
+      <div className="countdown">
+        <Countdown date={new Date(endDate)} />
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
