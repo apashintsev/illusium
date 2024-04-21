@@ -4,6 +4,7 @@ import { config } from "../../config";
 import { getAccount, simulateContract, writeContract } from "wagmi/actions";
 import { abi } from "./abi";
 import { ethers } from "ethers";
+import { useAccount } from "wagmi";
 
 type HexString = `0x${string}`;
 
@@ -18,7 +19,9 @@ export const MintButton: FC<IMintButtonProps> = ({
   baseUriForTokens,
   price,
 }) => {
-  const account = getAccount(config);
+  //const account = getAccount(config);
+  const { address } = useAccount();
+
   const quantity = 1;
   const contractAddress = "0x457d807b8ad88584968d45654e0474D7Cd2D0786";
 
@@ -53,12 +56,17 @@ export const MintButton: FC<IMintButtonProps> = ({
     };
 
     try {
+      console.log({ address});
+      if (!address) {
+        toast.warn("Connect wallet");
+        return
+      }
       const { request } = await simulateContract(config, {
         abi,
         address: contractAddress as HexString,
         functionName: "claim",
         args: [
-          account.address!,
+          address,
           BigInt(tokenId),
           BigInt(quantity),
           "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
@@ -67,7 +75,7 @@ export const MintButton: FC<IMintButtonProps> = ({
           _allowlistProof,
           "0x",
         ],
-        value:ethers.parseEther(price)
+        value: ethers.parseEther(price),
       });
       const makeTx = writeContract(config, request);
       toast
