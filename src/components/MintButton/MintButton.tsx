@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { toast } from "react-toastify";
 import { config } from "../../config";
-import { getAccount, simulateContract, writeContract } from "wagmi/actions";
+import { simulateContract, writeContract } from "wagmi/actions";
 import { abi } from "./abi";
 import { ethers } from "ethers";
 import { useAccount } from "wagmi";
@@ -24,7 +24,7 @@ export const MintButton: FC<IMintButtonProps> = ({
 
   const quantity = 1;
   const contractAddress = "0x457d807b8ad88584968d45654e0474D7Cd2D0786";
-
+/*
   const lazyMint = async () => {
     try {
       const { request } = await simulateContract(config, {
@@ -46,7 +46,7 @@ export const MintButton: FC<IMintButtonProps> = ({
       toast.error(e.message);
     }
   };
-
+*/
   const claim = async () => {
     const _allowlistProof = {
       proof: [ethers.ZeroHash] as const,
@@ -57,6 +57,7 @@ export const MintButton: FC<IMintButtonProps> = ({
 
     try {
       console.log({ address});
+      console.log({baseUriForTokens})
       if (!address) {
         toast.warn("Connect wallet");
         return

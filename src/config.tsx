@@ -1,6 +1,6 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { http } from "wagmi";
-import { scroll, sepolia } from "wagmi/chains";
+import { scroll/*, sepolia*/ } from "wagmi/chains";
 
 export const config = getDefaultConfig({
   appName: "Illusium",
