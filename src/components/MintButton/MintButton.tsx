@@ -85,7 +85,7 @@ export const MintButton: FC<IMintButtonProps> = ({
       window.dataLayer.push({
         event: "nft_claim_success",
         eventProps: {
-          referrerId: ref,
+          referrerAddress: ref,
           userAddress: address,
           tokenId: tokenId,
         },
