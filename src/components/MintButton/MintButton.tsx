@@ -19,34 +19,11 @@ export const MintButton: FC<IMintButtonProps> = ({
   baseUriForTokens,
   price,
 }) => {
-  //const account = getAccount(config);
   const { address } = useAccount();
 
   const quantity = 1;
   const contractAddress = "0x457d807b8ad88584968d45654e0474D7Cd2D0786";
-/*
-  const lazyMint = async () => {
-    try {
-      const { request } = await simulateContract(config, {
-        abi,
-        address: contractAddress as HexString,
-        functionName: "lazyMint",
-        args: [1n, baseUriForTokens, "0x"],
-      });
-      const makeTx = writeContract(config, request);
-      toast
-        .promise(makeTx, {
-          pending: "Pending transaction...",
-          success: "NFT has been minted! 👌",
-          error: "Error has been occured 🤯",
-        })
-        .then((_) => {});
-    } catch (e: any) {
-      console.log({ e });
-      toast.error(e.message);
-    }
-  };
-*/
+  const ref = "0x123d807b8ad88584968d45654e0474D7Cd2D0456";
   const claim = async () => {
     const _allowlistProof = {
       proof: [ethers.ZeroHash] as const,
@@ -56,11 +33,11 @@ export const MintButton: FC<IMintButtonProps> = ({
     };
 
     try {
-      console.log({ address});
-      console.log({baseUriForTokens})
+      console.log({ address });
+      console.log({ baseUriForTokens });
       if (!address) {
         toast.warn("Connect wallet");
-        return
+        return;
       }
       const { request } = await simulateContract(config, {
         abi,
@@ -85,12 +62,41 @@ export const MintButton: FC<IMintButtonProps> = ({
           success: "NFT has been minted! 👌",
           error: "Error has been occured 🤯",
         })
-        .then((_) => {});
+        .then((_) => {
+          //@ts-ignore
+          window.dataLayer.push({
+            event: "nft_claim_success",
+            eventProps: {
+              referrerId: ref,
+              userAddress: address,
+              tokenId: tokenId,
+            },
+          });
+        });
     } catch (e: any) {
       console.log({ e });
       toast.error(e.message);
     }
   };
 
-  return <button onClick={claim}>Mint (claim) for {price} ETH</button>;
+  const test = () => {
+    if (!!address) {
+      //@ts-ignore
+      window.dataLayer.push({
+        event: "nft_claim_success",
+        eventProps: {
+          referrerId: ref,
+          userAddress: address,
+          tokenId: tokenId,
+        },
+      });
+    }
+  };
+
+  return (
+    <>
+      <button onClick={claim}>Mint (claim) for {price} ETH</button>
+      <button onClick={test}>test</button>
+    </>
+  );
 };

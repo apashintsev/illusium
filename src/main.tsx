@@ -11,9 +11,19 @@ import { reconnect } from "wagmi/actions";
 import { injected } from "wagmi/connectors";
 import { config } from "./config.tsx";
 
+
+import TagManager from "react-gtm-module";
+
+const tagManagerArgs = {
+  gtmId: "GTM-PKXMCSFZ",
+};
+
+TagManager.initialize(tagManagerArgs);
+
 reconnect(config, { connectors: [injected()] });
 
 const queryClient = new QueryClient();
+
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <WagmiProvider config={config}>
